@@ -118,5 +118,7 @@ Schema.methods.compareSecQuestion =  function (question){
     }
 }
 
+
+
 const model = mongoose.model('user', Schema);
 export default model;
