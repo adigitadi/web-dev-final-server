@@ -3,6 +3,11 @@ import bcrypt from "bcrypt";
 
 //schema for User
 const Schema = new mongoose.Schema({
+                                       userType: {
+                                           type: String,
+                                           required: true,
+                                           enum: ['user', 'organizer'] // Assuming only two types of users
+                                       },
     uuid:{
         type: String,
         required: "Username is required",
