@@ -13,16 +13,6 @@ export const addEvent = async (request, response) => {
     }
 }
 
-export const updateEventById = async (request, response) => {
-    try {
-        const eventId = request.params.eventId;
-        const updateData = request.body;
-        const updatedEvent = await eventData.updateEventById(eventId, updateData);
-        httpUtils.setSuccessResponse(updatedEvent, response);
-    } catch (error) {
-        httpUtils.setErrorResponse(error, response);
-    }
-}
 //controller method to get the events based on query string
 export const getEvents = async (request, response) => {
     try{

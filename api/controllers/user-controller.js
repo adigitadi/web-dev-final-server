@@ -6,18 +6,17 @@ import nodemailer from 'nodemailer';
 
 //transporter to send mail to signedup users
 const transporter = nodemailer.createTransport({
-                                                   service: "gmail",
-                                                   auth: {
-                                                       user: "nuevents2022@gmail.com",
-                                                       pass: "gmzlepiwqaizkgpq"
-                                                   }
-                                               });
+    service: "gmail",
+    auth: {
+        user: "nuevents2022@gmail.com",
+        pass: "gmzlepiwqaizkgpq"
+    }
+});
 
 //controller method to sign up new user
 export const post = async (request, response) =>{
     try {
         const payload = request.body;
-        payload.userType = request.body.userType;
         const user = await userService.save(payload);
         const options = {
             from: "nuevents2022@gmail.com",
@@ -63,7 +62,7 @@ export const verifySecurityAnswer = async (request, response) =>{
             httpUtils.setSuccessResponse({ "isUserCorrectDetails": true, "message": "correct user details" }, response);
         }else{
             httpUtils.setErrorResponse({ "isUserCorrectDetails": false, "message": "Incorrect user details" }, response);
-        }
+        }   
     } catch (error) {
         httpUtils.setErrorResponse({"isUserCorrectDetails": false, "message" : "Incorrect user details"}, response);
     }
@@ -74,9 +73,9 @@ export const updateUser = async (request, response)=>{
     try {
         const uuid = request.params.uuid;
         const updatedUser = request.body;
-        if(updatedUser.password){
-            updatedUser.password = await encryptField(updatedUser.password)
-        }if(updatedUser.securityAnswer){
+        if(updatedUser.password){    
+            updatedUser.password = await encryptField(updatedUser.password)  
+        }if(updatedUser.securityAnswer){    
             updatedUser.securityAnswer = await encryptField(updatedUser.securityAnswer)
         }
         const user = await userService.updateUser(uuid, updatedUser);
@@ -124,7 +123,7 @@ export const unregisterEvent = async (request, response)=>{
     }catch (error) {
         httpUtils.setErrorResponse(error, response);
     }
-}
+} 
 
 //controller method to delete event unbookmarked by user
 export const unbookmarkEvent = async (request, response)=>{
@@ -136,7 +135,7 @@ export const unbookmarkEvent = async (request, response)=>{
     }catch (error) {
         httpUtils.setErrorResponse(error, response);
     }
-}
+} 
 
 //controller method to get user by uuid
 export const getUserById = async (request, response)=>{

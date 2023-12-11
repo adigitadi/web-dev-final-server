@@ -39,19 +39,6 @@ export const deleteEventById = async (id) => {
         throw error;
     }
 }
-export const updateEventById = async (eventId, updateData) => {
-    try {
-        // Update the event and return the updated document
-        const updatedEvent = await Event.findOneAndUpdate(
-            { eventId: eventId }, // filter by eventId
-            updateData, // update these fields
-            { new: true } // return the updated document
-        );
-        return updatedEvent;
-    } catch (error) {
-        throw error;
-    }
-};
 
 //service method to count the number of users registered for a given event
 export const countOfRegisteredUsers = async (id, isRegistered) => {
