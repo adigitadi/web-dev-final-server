@@ -12,6 +12,8 @@ router.route('/eventsData')
 //route to get Event by eventId and delete and event by eventId 
 router.route('/eventsData/:eventId')
     .get(eventsData.getEventById)
-    .delete(eventsData.deleteEventById)
+    .put(eventsData.updateEventById)
+    .delete(eventsData.deleteEventById);
+
 
 export default router
