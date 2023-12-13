@@ -6,12 +6,12 @@ import nodemailer from 'nodemailer';
 
 //transporter to send mail to signedup users
 const transporter = nodemailer.createTransport({
-                                                   service: "gmail",
-                                                   auth: {
-                                                       user: "nuevents2022@gmail.com",
-                                                       pass: "gmzlepiwqaizkgpq"
-                                                   }
-                                               });
+        service: "gmail",
+        auth: {
+            user: "nuevents2022@gmail.com",
+            pass: "gmzlepiwqaizkgpq"
+        }
+    });
 
 //controller method to sign up new user
 export const post = async (request, response) =>{

@@ -17,6 +17,9 @@ router.route('/users/:uuid')
 .put(userController.updateUser)
 .get(userController.getUserById);
 
+router.route('/profile/:uuid')
+.get(userController.getUserById);
+
 //route to verify security answer for password update
 router.route('/users/verify-security/:uuid')
 .get(userController.verifySecurityAnswer);
