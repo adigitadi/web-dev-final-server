@@ -6,7 +6,7 @@ const Schema = new mongoose.Schema({
     userType: {
         type: String,
         required: true,
-        enum: ['user', 'organizer'] // Assuming only two types of users
+        enum: ['user', 'organizer','admin'] // Assuming only two types of users
     },
     uuid:{
         type: String,
